@@ -90,7 +90,6 @@ async function getContactCampaign() {
         console.log(campaignNameArray[i][1]);
         let campDate = campaignNameArray[i][1];
         var dd = String(campDate.substring(8, 10));
-
         var mm = String(campDate.substring(5, 7));
         var yyyy = campDate.substring(0, 4);
         campDate = yyyy + '/' + mm + '/' + dd;
@@ -101,7 +100,7 @@ async function getContactCampaign() {
 
             "id": i,
             "date": campDate,
-            content: campaignNameArray[0][i],
+            content: campaignNameArray[i][0],
             source: "http://salesforce.com"
 
         });
