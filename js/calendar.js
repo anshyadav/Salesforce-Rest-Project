@@ -76,7 +76,6 @@ async function getContactCampaign() {
     });
 
     campaignNameListResponse = await campaignNameList.json();
-    console.log(campaignNameListResponse);
 
     campaignNameArray = [];
 
