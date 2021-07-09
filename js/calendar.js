@@ -1,5 +1,5 @@
 window.onload = function () {
-    console.log(getContactCampaign());
+    getContactCampaign();
 
 }
 
@@ -59,14 +59,12 @@ async function getContactCampaign() {
     });
 
     campaignIdListResponse = await campaignIdList.json();
-    console.log(campaignIdListResponse);
     campaignIDArray = "";
 
     for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
         campaignIDArray = campaignIDArray + "'" + campaignIdListResponse["records"][i]["CampaignId"] + "',";
     }
     campaignIDArray = campaignIDArray.substring(-1, campaignIDArray.length - 1);
-    console.log(campaignIDArray);
 
     let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+(" + campaignIDArray + ")", {
         method: "GET",
